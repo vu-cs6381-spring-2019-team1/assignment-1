@@ -1,0 +1,10 @@
+{
+    "broker":
+        {
+            "ip":"10.0.0.1",
+            "frontendForwarder":"5555",
+            "backendForwarder":"5556",
+            "frontendReplier":"5557",
+            "backendReplier":"5558"
+        }
+}
