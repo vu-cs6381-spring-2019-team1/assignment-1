@@ -58,17 +58,22 @@ class Publisher:
         self.rp.start()
 
     def publish(self, topic, value):
-        if type(topic) is not type(str()):
-            print("The topic must be of type string")
-        elif useBroker:
-            self.cSocket.send_string(f"{topic}:{value}")
-        else:
-            self.bSocket.send_string(f"{topic}:{value}")
+        # if type(topic) is not type(str()):
+        #     print("The topic must be of type string")
+        # elif self.useBroker:
+        #     self.cSocket.send_string(f"{topic}:{value}")
+        # else:
+            # self.bSocket.send_string(f"{topic}:{value}")
+            self.bSocket.send_string("%d %d" % (topic, value))
 
 
 if __name__ == "__main__":
 
     p = Publisher("localhost", "7777")
+
+    time.sleep(1)
+    p.publish(234, 121212)
+
     p.register_pub("nothing")
 
     ctx = zmq.Context()
